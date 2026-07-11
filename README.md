@@ -1,70 +1,331 @@
 # AdaptiveCare AI
-> **"The healthcare interface that adapts to you in real-time."**
->
-> Submission for **Build The Next Big UI** / **Frontend Battle 2026**
-> **Category**: Healthcare & Wellness Accessibility
-> **Design Theme**: Next-Gen Cyber-Health SaaS
+
+### The Healthcare Interface That Adapts to You in Real Time
+
+AdaptiveCare AI is an adaptive healthcare dashboard designed to personalize the user interface for different healthcare users.
+
+Instead of presenting the same fixed dashboard to everyone, the application changes its **layout density, typography, widget priority, navigation, and accessibility settings** based on the selected user persona and interface preferences.
+
+The current prototype supports four adaptive experiences: **Senior Citizen, Diabetic Patient, Fitness Enthusiast, and Family Caregiver**.
+
+> **Frontend Battle 2026 — Healthcare & Wellness**
 
 ---
 
-## 🚀 1. The Vision & Problem Statement
-Traditional digital health portals force every user into a single, static layout template. However, a user's health profile, cognitive bandwidth, physical dexterity, and medical goals are never static.
+##  Project Preview
 
-**AdaptiveCare AI** addresses these core interface limitations:
-* **Cognitive Congestion**: Elderly patients get overwhelmed by complex, multi-layered dashboards, resulting in search anxiety.
-* **Chronic Management Friction**: Chronic patients (e.g., diabetics) struggle to quickly log daily inputs (blood sugar, insulin checks) when mixed with general wellness logs.
-* **Data Deprivation**: Athletes are forced to dig through deep menus to compile wearable sensor graphs, active calories, and heart rate zones during workouts.
-* **Caregiver Supervision Fatigue**: Caregivers manage prescriptions for multiple family members inside interfaces designed only for single-user accounts.
-* **Emergency Action Latency**: Standard health portals require multiple clicks to trigger safety services, costing critical seconds.
+###  Landing Page
+
+The landing page introduces the adaptive healthcare concept and provides access to the onboarding flow or a quick dashboard demo.
+
+<p align="center">
+  <img src="images/landing-page.png" alt="AdaptiveCare AI Landing Page" width="950"/>
+</p>
 
 ---
 
-## 🎨 2. The Solution: Real-Time Adaptive UI Architecture
-**AdaptiveCare AI** introduces a dynamic **Adaptive UI Canvas Engine** that shifts grid distributions, typography scales, layout gaps, and active widget sets in real-time according to the selected user profile, layout density settings, and font scales.
+### 👤 Persona Selection
 
+Users select the profile that best represents how they intend to use the healthcare dashboard.
+
+The selected persona is used to initialize the adaptive interface configuration.
+
+<p align="center">
+  <img src="images/persona-selection.png" alt="AdaptiveCare AI Persona Selection" width="700"/>
+</p>
+
+---
+
+###  Health Profile Setup
+
+The onboarding form collects basic profile information such as name, age, weight, and blood group.
+
+Form inputs are validated using **React Hook Form** and **Zod** before continuing to the personalized interface.
+
+<p align="center">
+  <img src="images/health-profile-setup.png" alt="AdaptiveCare AI Health Profile Setup" width="700"/>
+</p>
+
+---
+
+###  Adaptive Dashboard — Senior Mode
+
+Senior Mode prioritizes accessibility and important daily health actions.
+
+The interface highlights emergency access, medication schedules, appointments, and simplified health information.
+
+<p align="center">
+  <img src="images/dashboard-senior.png" alt="AdaptiveCare AI Senior Dashboard" width="950"/>
+</p>
+
+---
+
+### 🩸 Adaptive Dashboard — Diabetic Mode
+
+Diabetic Mode prioritizes glucose-related information and daily health management.
+
+Health trends, glucose information, and relevant tracking widgets are surfaced more prominently.
+
+<p align="center">
+  <img src="images/dashboard-diabetic.png" alt="AdaptiveCare AI Diabetic Dashboard" width="950"/>
+</p>
+
+---
+
+### Adaptive Dashboard — Fitness Mode
+
+Fitness Mode uses a more detailed dashboard layout for users who want to view multiple performance metrics.
+
+Activity information, heart-rate-related data, calorie progress, and fitness visualizations are given higher priority.
+
+<p align="center">
+  <img src="images/dashboard-fitness.png" alt="AdaptiveCare AI Fitness Dashboard" width="950"/>
+</p>
+
+---
+
+### Adaptive Dashboard — Caregiver Mode
+
+Caregiver Mode focuses on health monitoring and oversight.
+
+The dashboard provides a broader view of health information, medication-related data, and alerts relevant to a caregiver workflow.
+
+<p align="center">
+  <img src="images/dashboard-caregiver.png" alt="AdaptiveCare AI Caregiver Dashboard" width="950"/>
+</p>
+
+---
+
+### ⚙️ Customization Settings
+
+Users can manually customize their interface instead of being restricted to the default persona configuration.
+
+The settings interface supports changes to layout density, text sizing, and interface preferences.
+
+<p align="center">
+  <img src="images/customization-settings.png" alt="AdaptiveCare AI Customization Settings" width="950"/>
+</p>
+
+---
+
+### 🤖 AI Copilot — Adaptive Interface Assistant
+
+The AdaptiveCare AI Copilot provides a conversational interface for interacting with dashboard controls.
+
+The prototype supports interface-focused commands such as changing persona layouts, adjusting text size, enabling detailed fitness mode, switching themes, and interacting with supported dashboard actions.
+
+<p align="center">
+  <img src="images/ai-copilot.png" alt="AdaptiveCare AI Copilot" width="500"/>
+</p>
+
+---
+
+### Emergency SOS Interface
+
+The prototype includes a fullscreen Emergency SOS experience designed to make emergency actions visually prominent and easy to access.
+
+> The current implementation demonstrates the emergency interface and interaction flow. It is not connected to a real emergency dispatch service.
+
+<p align="center">
+  <img src="images/emergency-sos.png" alt="AdaptiveCare AI Emergency SOS Interface" width="950"/>
+</p>
+
+---
+
+### Responsive Mobile Experience
+
+AdaptiveCare AI includes responsive layouts designed to adjust across desktop and smaller screen sizes.
+
+<p align="center">
+  <img src="images/responsive-mobile.png" alt="AdaptiveCare AI Responsive Mobile Experience" width="350"/>
+</p>
+
+---
+
+##  The Problem
+
+Healthcare users have different goals, abilities, and priorities, but many digital dashboards still rely on a fixed interface structure.
+
+A senior citizen checking medications may need a simple interface with large text and clear actions. A diabetic patient may want glucose-related information to appear first. A fitness user may prefer a denser dashboard with multiple performance metrics. A caregiver may need a broader overview of health information.
+
+Using the same layout for all of these users can create unnecessary complexity.
+
+Some common interface challenges include:
+
+- Dense dashboards that can be difficult to navigate
+- Important information competing with less relevant widgets
+- Limited typography and layout customization
+- Generic navigation for users with different goals
+- Emergency actions that may not be visually prioritized
+- Interfaces designed around a single type of user
+
+AdaptiveCare AI explores a simple idea:
+
+> **What if the healthcare interface adapted to the user instead of expecting the user to adapt to the interface?**
+
+---
+
+##  The Solution
+
+AdaptiveCare AI is a frontend prototype of an **adaptive healthcare dashboard**.
+
+The application uses a shared component architecture and global application state to render different interface configurations for different user personas.
+
+The adaptive experience can modify:
+
+- Dashboard layout
+- Layout density
+- Typography scale
+- Widget visibility and priority
+- Navigation options
+- Accessibility preferences
+- Theme settings
+
+The goal is not to build four separate healthcare applications.
+
+Instead, AdaptiveCare AI uses **one interface system that can present different experiences based on the active user mode**.
+
+---
+
+## Four Adaptive Persona Modes
+
+###  Senior Citizen Mode
+
+Senior Mode is designed around simplicity and accessibility.
+
+It prioritizes:
+
+- Larger interface elements
+- Clear navigation
+- Emergency SOS access
+- Medication information
+- Doctor appointments
+- Simplified health summaries
+
+The interface reduces unnecessary visual density and keeps important actions visible.
+
+---
+
+### 🩸 Diabetic Patient Mode
+
+Diabetic Mode focuses on daily health tracking.
+
+It prioritizes:
+
+- Glucose-related information
+- Health trend visualization
+- Medication tracking
+- Daily monitoring widgets
+- Relevant health metrics
+
+The dashboard places condition-related information higher in the interface.
+
+---
+
+### ⚡ Fitness Enthusiast Mode
+
+Fitness Mode provides a more information-dense experience.
+
+It prioritizes:
+
+- Fitness metrics
+- Activity information
+- Heart rate data
+- Calorie progress
+- Performance visualizations
+- Detailed dashboard widgets
+
+This mode is designed for users who prefer seeing multiple metrics at once.
+
+---
+
+### 🛡️ Family Caregiver Mode
+
+Caregiver Mode focuses on monitoring and oversight.
+
+It prioritizes:
+
+- Health overview information
+- Medication-related data
+- Important alerts
+- Care-related dashboard widgets
+- Information relevant to monitoring workflows
+
+The interface reorganizes dashboard content around caregiver-focused tasks.
+
+---
+
+## 🧠 How the Adaptive UI Works
+
+AdaptiveCare AI uses a global application context to manage interface preferences and the currently active persona.
+
+```text
+                 User Interaction
+                        │
+                        ▼
+              Persona / Preferences
+                        │
+                        ▼
+                AppProvider Context
+                        │
+          ┌─────────────┼─────────────┐
+          │             │             │
+          ▼             ▼             ▼
+     User Persona   Layout Density   Text Scale
+          │             │             │
+          └─────────────┼─────────────┘
+                        │
+                        ▼
+                Adaptive UI Rules
+                        │
+          ┌─────────────┼─────────────┐
+          ▼             ▼             ▼
+       Layout        Widgets      Typography
+          │             │             │
+          └─────────────┼─────────────┘
+                        │
+                        ▼
+              Personalized Dashboard
 ```
-                  ┌──────────────────────────────┐
-                  │      AppProvider Context     │
-                  └──────────────┬───────────────┘
-                                 │
-         ┌───────────────────────┼───────────────────────┐
-         ▼                       ▼                       ▼
- ┌──────────────┐        ┌──────────────┐        ┌──────────────┐
- │ User Profile │        │ Layout Gap   │        │ Global Text  │
- │ (4 Persona   │        │ & Paddings   │        │ Sizing Scale │
- │  Modes)      │        │ (Simple,     │        │ (Small to    │
- └──────────────┘        │  Balanced,   │        │  XL Scale)   │
-                         │  Detailed)   │        └──────────────┘
-                         └──────────────┘
-```
 
-### The Four Persona Modes:
-1. **Senior Citizen Mode (👵)**
-   * **Focus**: Large click targets, simplified vital readouts, contrasting text, and a prominent Emergency SOS Trigger.
-   * **Default Settings**: Simple density, high-contrast, Large/XL accessibility font scaling.
-2. **Diabetic Patient Mode (🩸)**
-   * **Focus**: Prioritizes live blood glucose graphs, meal carb planners, and prescription checklist timelines.
-   * **Default Settings**: Balanced density, interactive charts.
-3. **Fitness Enthusiast Mode (⚡)**
-   * **Focus**: High-density athletic telemetry, cardiac zone trackers, active calorie burn progress, and milestone trophy cabinet.
-   * **Default Settings**: Detailed density, multi-variable charts.
-4. **Family Caregiver Mode (🛡️)**
-   * **Focus**: Multi-person vitals overview grid, shared prescription checklist tracking, and active caregiver alerts.
-   * **Default Settings**: Balanced layout density, high visibility alerts.
+The same application components are reused across persona modes.
+
+The active configuration determines how the interface is presented to the user.
 
 ---
 
-## ⚙️ 3. Layout Density & Sizing Engine
+## 📐 Layout Density Engine
 
-Unlike static dashboards, MorphUI's settings panel dynamically restructures the CSS variables and layout models globally in real-time:
+AdaptiveCare AI provides three dashboard density options.
 
-### 🧩 A. Layout Density
-* **Simple Mode**: Opens up the dashboard workspace layout. Sets spacing gaps to `gap-10` and GlassCard padding to `p-8 sm:p-10`. Sets card corners to `rounded-[28px]` for a highly accessible layout.
-* **Balanced Mode**: The default state. Uses standard gaps (`gap-6 md:gap-8`), card padding (`p-6 sm:p-7`), and rounding (`rounded-[24px]`).
-* **Detailed Mode**: Restructures the canvas for clinical precision. Drops grid gaps to `gap-4` and card padding to `p-4 sm:p-5` with `rounded-[20px]` borders. This pulls secondary items above the fold, allowing users to fit more information on screen.
+### Simple
 
-### 🔍 B. Global Text Sizing & Accessibility Scale
-Rather than using static Tailwind font sizes, MorphUI uses **Tailwind v4 `@theme` mappings** tied to CSS custom properties:
+Simple mode creates a more spacious interface.
+
+It uses larger spacing and card padding to reduce visual density and make dashboard sections easier to distinguish.
+
+This mode is suitable for users who prefer a cleaner and less crowded interface.
+
+### Balanced
+
+Balanced mode provides a middle ground between spacing and information density.
+
+It is designed for general dashboard usage and keeps important information visible without making the interface feel crowded.
+
+### Detailed
+
+Detailed mode reduces spacing between interface elements and allows more dashboard information to remain visible on the screen.
+
+This mode is useful for users who prefer a data-rich experience.
+
+The selected density affects dashboard spacing and card presentation across supported components.
+
+---
+
+## 🔤 Dynamic Typography Scaling
+
+AdaptiveCare AI uses CSS custom properties with Tailwind CSS theme mappings to support global text scaling.
+
 ```css
 @theme {
   --text-xs: var(--text-xs-scale, 0.75rem);
@@ -77,102 +338,299 @@ Rather than using static Tailwind font sizes, MorphUI uses **Tailwind v4 `@theme
   --text-4xl: var(--text-4xl-scale, 2.25rem);
 }
 ```
-When a user selects a text scale, the context sets the corresponding scale class (`font-scale-small`, `font-scale-medium`, `font-scale-large`, or `font-scale-extra-large`) directly to `document.documentElement` (`html` tag).
-All child components inherit these scale variables, adjusting font sizing across all pages (Dashboard, Settings, Sidebar, Command Palette) instantly.
+
+When the text scale changes, the application applies the corresponding font scale configuration at the root interface level.
+
+Supported scale modes include:
+
+- Small
+- Medium
+- Large
+- Extra Large
+
+Components using the mapped typography variables inherit the updated scale, allowing text sizing to change consistently across the interface.
 
 ---
 
-## ✨ 4. High-Fidelity UI Features & 3D Parallax
+##  Key Features
 
-* **3D Interactive Cascade Stage (Hero Section)**: A 3D mockup dashboard that tracks user mouse positions. Clicking profile tabs morphs the mockup cards in 3D perspective to match Senior, Diabetic, or Fitness presets.
-* **Telemetry HUD diagnostics**: High-performance dashboard cards featuring live SVG diagnostics:
-  * ECG rhythm waveforms for Compile Latency.
-  * Spline connections for Loggers Online.
-  * Concentric progress trackers for AI Precision.
-* **Conversational Onboarding (Zod & React Hook Form)**: A custom diagnostics form that gathers demographic metrics (Name, Age, Weight, Blood Group) and automatically compiles the initial health profile.
-* **Ctrl+K Command Palette**: A keyboard-accessible overlay that lets users switch profiles, toggle dark theme, log vitals, and trigger SOS alerts dynamically.
-* **Tactile Jump-Scroll Highlights**: Clicking sidebar vital shortcuts smooth-scrolls the dashboard to the target widget and triggers a glowing border flash using custom CSS keyframe animations.
-* **Fullscreen Emergency SOS Interface**: Toggling SOS triggers a fullscreen warning card with a glowing pulsing warning icon, displaying coordinates and safety telemetry while alerting emergency dispatchers.
+###  Adaptive Dashboard
+
+Dashboard content and presentation change according to the selected user persona.
+
+###  Adjustable Layout Density
+
+Users can switch between Simple, Balanced, and Detailed dashboard layouts.
+
+###  Dynamic Text Scaling
+
+Typography can be adjusted globally to support different readability preferences.
+
+###  AI Copilot Interface
+
+A conversational assistant interface provides supported commands for adapting dashboard settings and interacting with prototype actions.
+
+###  Command Palette
+
+The keyboard-accessible command palette provides quick access to supported dashboard actions and interface settings.
+
+###  Emergency SOS Experience
+
+A dedicated fullscreen emergency interface makes the SOS workflow visually prominent.
+
+###  Interactive Data Visualizations
+
+Recharts is used to render responsive health and activity visualizations.
+
+### Light and Dark Themes
+
+Users can switch between light and dark interface themes.
+
+### Motion and Interface Transitions
+
+Framer Motion is used for interface transitions and animated interactions.
+
+###  Responsive Design
+
+The interface adapts to desktop and smaller screen layouts.
+
+###  Dashboard Navigation Shortcuts
+
+Supported sidebar shortcuts help users move to relevant dashboard sections.
 
 ---
 
-## 🛠️ 5. Technical Stack
+##  Technology Stack
 
-* **Frontend Framework**: `React.js` (JavaScript ES6+, Vite build tools)
-* **Theme & Utility Styling**: `Tailwind CSS v4` + `Vanilla CSS3` (custom variables, keyframe animations, grid overlays, glassmorphism filters)
-* **Animation Library**: `Framer Motion` (3D springs, layout transformations, exit/enter animations)
-* **Data Visualization**: `Recharts` (Area and Line charts with responsive containers)
-* **Forms & Validation**: `React Hook Form` & `Zod` (schema validation engine)
-* **Default Theme**: Default system-wide Dark Mode.
+| Technology | Purpose |
+|---|---|
+| React.js | Component-based frontend development |
+| Vite | Development and build tooling |
+| Tailwind CSS v4 | Utility styling and adaptive interface configuration |
+| CSS3 | Custom properties, animations, and interface effects |
+| Framer Motion | UI transitions and motion effects |
+| Recharts | Responsive dashboard charts |
+| React Hook Form | Form state management |
+| Zod | Onboarding form validation |
+| Context API | Global persona and interface state |
+| Lucide React | Interface icons |
+| Vercel | Frontend deployment |
+| Git & GitHub | Version control and source management |
 
 ---
 
-## 📂 6. Project Architecture
+## 📂 Project Architecture
 
-```
-AdaptiveCare AI/
+```text
+AdaptiveCare-AI/
+│
+├── images/
+│   ├── ai-copilot.png
+│   ├── customization-settings.png
+│   ├── dashboard-caregiver.png
+│   ├── dashboard-diabetic.png
+│   ├── dashboard-fitness.png
+│   ├── dashboard-senior.png
+│   ├── emergency-sos.png
+│   ├── health-profile-setup.png
+│   ├── landing-page.png
+│   ├── persona-selection.png
+│   └── responsive-mobile.png
+│
+├── public/
+│
 ├── src/
 │   ├── components/
 │   │   ├── common/
-│   │   │   ├── CustomChart.jsx        # Wrapper for responsive Recharts
-│   │   │   ├── GlassCard.jsx          # Interactive 3D glass card wrapper
-│   │   │   └── ProgressRing.jsx       # SVG concentric progress ring
+│   │   │   ├── CustomChart.jsx
+│   │   │   ├── GlassCard.jsx
+│   │   │   └── ProgressRing.jsx
+│   │   │
 │   │   ├── layout/
-│   │   │   ├── AIAssistant.jsx        # Sidebar copilot interface
-│   │   │   ├── CommandPalette.jsx     # Cmd+K prompt selector
-│   │   │   ├── Header.jsx             # Top bar actions
-│   │   │   ├── SettingsDrawer.jsx     # Quick layout settings overlay
-│   │   │   └── Sidebar.jsx            # Multi-profile navigator
+│   │   │   ├── AIAssistant.jsx
+│   │   │   ├── CommandPalette.jsx
+│   │   │   ├── Header.jsx
+│   │   │   ├── SettingsDrawer.jsx
+│   │   │   └── Sidebar.jsx
+│   │   │
 │   │   └── widgets/
-│   │       ├── GlucoseTracker.jsx     # Blood glucose spline logger
-│   │       ├── HeartRateTracker.jsx   # ECG heartbeat tracker
-│   │       ├── MedicationTracker.jsx  # Prescription checkbox grid
-│   │       ├── CaloriesTracker.jsx    # Concentric active calorie progress
-│   │       └── ...                    # (WeeklySummary, FamilyOverview, etc.)
+│   │       ├── GlucoseTracker.jsx
+│   │       ├── HeartRateTracker.jsx
+│   │       ├── MedicationTracker.jsx
+│   │       ├── CaloriesTracker.jsx
+│   │       └── ...
+│   │
 │   ├── context/
-│   │   └── AppContext.jsx             # Global state provider
+│   │   └── AppContext.jsx
+│   │
 │   ├── data/
-│   │   └── profiles.json              # Mock database configuration
+│   │   └── profiles.json
+│   │
 │   ├── pages/
-│   │   ├── LandingPage.jsx            # Parallax SaaS Landing Page
-│   │   ├── Onboarding.jsx             # Zod validation diagnostic wizard
-│   │   ├── DashboardPage.jsx          # Morphing dashboard workspace grid
-│   │   └── SettingsPage.jsx           # Global system preferences
-│   ├── index.css                      # Tailwind v4 theme styling rules
-│   └── main.jsx                       # Entrypoint
+│   │   ├── LandingPage.jsx
+│   │   ├── Onboarding.jsx
+│   │   ├── DashboardPage.jsx
+│   │   └── SettingsPage.jsx
+│   │
+│   ├── index.css
+│   └── main.jsx
+│
+├── README.md
+├── package.json
+└── vite.config.js
 ```
 
 ---
 
-## 🚀 7. Installation & Getting Started
+## 🚀 Getting Started
 
-### Prerequisites:
-Make sure you have [Node.js](https://nodejs.org/) (v18+) installed.
+### Prerequisites
 
-### Setup Instructions:
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/<your-username>/AdaptiveCare-AI.git
-   cd adaptiveCare-ai
-   ```
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-3. **Start the development server**:
-   ```bash
-   npm run dev
-   ```
-4. Open the link in your browser:
-   * **Landing Page**: `http://localhost:5174/`
-   * **Onboarding**: `http://localhost:5174/onboarding`
-   * **Dashboard**: `http://localhost:5174/dashboard`
-   * **Settings**: `http://localhost:5174/settings`
+Before running the project, make sure you have:
+
+- Node.js 18 or later
+- npm
+- Git
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/Manisha5918/AdaptiveCare-AI.git
+```
+
+### Open the Project
+
+```bash
+cd AdaptiveCare-AI
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Start the Development Server
+
+```bash
+npm run dev
+```
+
+Open the local URL displayed by Vite in your terminal.
+
+The exact port may vary if the default Vite port is already in use.
+
+### Application Routes
+
+```text
+/              Landing Page
+/onboarding    Persona Selection and Health Profile Setup
+/dashboard     Adaptive Dashboard
+/settings      Interface Settings
+```
 
 ---
 
-## 🔮 8. Future Roadmap
+## User Flow
 
-* **Biometric IoT Integrations**: Sync with wearable sensors (smart bands, CGMs) to automatically shift layouts (e.g. triggering Diabetic Crisis layout if glucose drops below 70 mg/dL).
-* **AI Voice-Driven Layout Shifts**: Integrate voice commands so the interface reconfigures verbally (e.g. saying *"I'm going for a run"* shifts the UI into the Fitness HUD layout).
-* **Dynamic Grid Saving**: Allow users to drag and drop custom layouts and persist the customized grid layout coordinates inside local storage.
+```text
+Landing Page
+      │
+      ▼
+Persona Selection
+      │
+      ▼
+Health Profile Setup
+      │
+      ▼
+Interface Personalization
+      │
+      ▼
+Adaptive Dashboard
+      │
+      ├── Senior Mode
+      ├── Diabetic Mode
+      ├── Fitness Mode
+      └── Caregiver Mode
+      │
+      ▼
+Settings and Manual Customization
+```
+
+Users are not permanently restricted to the initial persona configuration.
+
+Supported interface settings can be manually changed through the application.
+
+---
+
+## Possible Applications
+
+The adaptive interface concept demonstrated by AdaptiveCare AI could be explored in applications such as:
+
+- Healthcare dashboards
+- Telemedicine platforms
+- Senior care applications
+- Home healthcare interfaces
+- Wellness platforms
+- Fitness dashboards
+- Caregiver support tools
+
+AdaptiveCare AI is currently a frontend prototype and is not a clinical system.
+
+---
+
+##  Future Roadmap
+
+###  Wearable Device Integration
+
+Connect supported wearable devices or health sensors to display live health data within relevant dashboard widgets.
+
+###  Voice-Based Interface Controls
+
+Allow users to change supported interface settings using voice commands.
+
+For example, a user could request a larger text size or switch to a different dashboard mode.
+
+###  Smarter Personalization Rules
+
+Expand the current persona-based configuration with additional user preferences and interaction patterns.
+
+###  Custom Dashboard Layouts
+
+Allow users to rearrange supported widgets and save their preferred dashboard configuration.
+
+###  Multi-Language Support
+
+Provide localized interface content to make the application usable across different languages.
+
+###  Persistent User Profiles
+
+Store user preferences and dashboard configurations through a backend or cloud-based data layer.
+
+###  Expanded Copilot Commands
+
+Extend the Copilot interface with additional safe dashboard actions and interface customization commands.
+
+---
+
+##  Prototype Disclaimer
+
+AdaptiveCare AI is a **frontend prototype created for a UI-focused project and competition submission**.
+
+The health data displayed in the interface is demonstration data.
+
+The project does not provide medical diagnosis or medical advice, and the Emergency SOS interface is not connected to real emergency dispatch services.
+
+---
+
+##  Developed By
+
+### Manisha G
+
+Built as a submission for **Frontend Battle 2026 — Healthcare & Wellness**.
+
+---
+
+##  Support the Project
+
+If you found the adaptive interface concept interesting, consider starring the repository.
